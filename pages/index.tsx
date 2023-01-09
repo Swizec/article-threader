@@ -32,7 +32,7 @@ const Thread = (props: { text: string }) => {
 
     return (
         <Box sx={{ p: 3 }}>
-            <h3>Here's your thread:</h3>
+            <h3>Here&apos;s your thread:</h3>
             <pre style={{ whiteSpace: "pre-wrap" }}>{`
 ${text}
         `}</pre>
