@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { Box, Button, Flex, Input, Label, Paragraph, Spinner } from "theme-ui";
+import { Box, Button, Flex, Input, Link, Paragraph, Spinner } from "theme-ui";
 
 async function findKeyInsight(vars: { url: string }) {
     const res = await fetch("/api/findKeyInsight", {
@@ -42,7 +42,11 @@ export const KeyInsight = () => {
     }
 
     return (
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+            sx={{
+                textAlign: "center",
+            }}
+        >
             <h1>What is the point?</h1>
             <Paragraph>
                 Reading? Ain't nobody got time for that. Paste the URL, get the
@@ -60,6 +64,7 @@ export const KeyInsight = () => {
                 <Input
                     name="url"
                     value={url}
+                    placeholder="Paste URL here"
                     onChange={(e) => setUrl(e.currentTarget.value)}
                     sx={{ m: 3, width: "100%" }}
                 />
@@ -77,6 +82,10 @@ export const KeyInsight = () => {
                 <>
                     <h2>The point 👇</h2>
                     <Paragraph sx={{ m: "auto", p: 2 }}>{keyInsight}</Paragraph>
+                    <Paragraph>
+                        Read more:{" "}
+                        <Link href={url}>{new URL(url).hostname}</Link>
+                    </Paragraph>
                 </>
             ) : null}
         </Box>

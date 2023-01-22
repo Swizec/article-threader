@@ -1,7 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
-import { useMutation } from "react-query";
-import { Box, Button, Container, Input, Label, Spinner } from "theme-ui";
+import { Box, Container, Flex, Link } from "theme-ui";
 import { KeyInsight } from "../components/KeyInsight";
 
 export default function Home() {
@@ -20,9 +18,29 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container>
+            <Container
+                sx={{
+                    display: "flex",
+                    alignItems: "stretch",
+                    minHeight: "100vh",
+                    flexDirection: "column",
+                }}
+            >
                 {/* <ThreadMaker /> */}
-                <KeyInsight />
+                <Flex
+                    as="main"
+                    sx={{
+                        flex: 1,
+                        justifyContent: "center",
+                        alignContent: "center",
+                    }}
+                >
+                    <KeyInsight />
+                </Flex>
+                <Box as="footer" sx={{ textAlign: "center", p: [1, 3] }}>
+                    Created for fun by{" "}
+                    <Link href="https://swizec.com">Swizec</Link>
+                </Box>
             </Container>
         </>
     );

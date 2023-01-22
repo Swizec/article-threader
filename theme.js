@@ -1,9 +1,9 @@
-import { deep } from "@theme-ui/presets";
+import { deep, dark, tosh } from "@theme-ui/presets";
 
 export default {
-    ...deep,
+    ...tosh,
     sizes: {
-        ...deep.sizes,
-        container: 1024,
+        ...tosh.sizes,
+        container: 900,
     },
 };
