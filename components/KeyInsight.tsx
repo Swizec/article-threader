@@ -49,8 +49,8 @@ export const KeyInsight = () => {
         >
             <h1>What is the point?</h1>
             <Paragraph>
-                Reading? Ain't nobody got time for that. Paste the URL, get the
-                point 👇
+                Reading? Ain&apos;t nobody got time for that. Paste the URL, get
+                the point 👇
             </Paragraph>
             <Flex
                 as="form"
