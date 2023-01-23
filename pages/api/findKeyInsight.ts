@@ -20,8 +20,6 @@ const findKeyInsight: NextApiHandler = async (req, res) => {
 
     const cleanContent = stripHtml(article.content).result;
 
-    console.log(cleanContent);
-
     const insight1 = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `What is the most surprising insight in this article: ${cleanContent}`,

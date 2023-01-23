@@ -18,10 +18,15 @@ async function findKeyInsight(vars: { url: string }) {
     return res.text();
 }
 
-const Thread = (props: { text: string }) => {
-    const text = props.text.replaceAll(/(\n)+/g, "\n\n");
-
-    return <Paragraph>{text}</Paragraph>;
+const HowItWorks = () => {
+    return (
+        <>
+            <h3>Here&apos;s how it works:</h3>
+            <video autoPlay loop muted style={{ maxHeight: "400px" }}>
+                <source src="preview.mp4" type="video/mp4" />
+            </video>
+        </>
+    );
 };
 
 export const KeyInsight = () => {
@@ -87,7 +92,9 @@ export const KeyInsight = () => {
                         <Link href={url}>{new URL(url).hostname}</Link>
                     </Paragraph>
                 </>
-            ) : null}
+            ) : (
+                <HowItWorks />
+            )}
         </Box>
     );
 };
