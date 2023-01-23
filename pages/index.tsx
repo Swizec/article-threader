@@ -9,7 +9,44 @@ export default function Home() {
                 <title>WhatIsThePoint.xyz gives you the point</title>
                 <meta
                     name="description"
-                    content="Find the point of any longwinded article"
+                    content="Find the point of any article you're too busy to read"
+                />
+
+                <meta
+                    property="og:url"
+                    content="https://www.whatisthepoint.xyz/"
+                />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content="WhatIsThePoint.xyz gives you the point"
+                />
+                <meta
+                    property="og:description"
+                    content="Find the point of any article you're too busy to read"
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.whatisthepoint.xyz/logo.png"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="whatisthepoint.xyz" />
+                <meta
+                    property="twitter:url"
+                    content="https://www.whatisthepoint.xyz/"
+                />
+                <meta
+                    name="twitter:title"
+                    content="WhatIsThePoint.xyz gives you the point"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Find the point of any article you're too busy to read"
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://www.whatisthepoint.xyz/logo.png"
                 />
                 <meta
                     name="viewport"
