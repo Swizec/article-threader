@@ -31,6 +31,7 @@ const HowItWorks = () => {
 
 export const KeyInsight = () => {
     const [url, setUrl] = useState<string>("");
+    const [isError, setIsError] = useState<boolean>(false);
 
     const {
         data: keyInsight,
@@ -41,8 +42,15 @@ export const KeyInsight = () => {
     async function makeThread(event: React.FormEvent) {
         event.preventDefault();
 
+        setIsError(false);
+
         if (url) {
-            await mutateAsync({ url });
+            try {
+                await mutateAsync({ url });
+            } catch (e) {
+                console.error(e);
+                setIsError(true);
+            }
         }
     }
 
@@ -56,6 +64,19 @@ export const KeyInsight = () => {
             <Paragraph>
                 Reading? Ain&apos;t nobody got time for that. Paste the URL, get
                 the point 👇
+            </Paragraph>
+            <Paragraph>
+                Don&apos;t have a URL handy?{" "}
+                <Link
+                    href="#"
+                    onClick={() =>
+                        setUrl(
+                            "https://swizec.com/blog/why-senior-engineers-get-nothing-done/"
+                        )
+                    }
+                >
+                    Try an example
+                </Link>
             </Paragraph>
             <Flex
                 as="form"
@@ -73,6 +94,13 @@ export const KeyInsight = () => {
                     onChange={(e) => setUrl(e.currentTarget.value)}
                     sx={{ m: 3, width: "100%" }}
                 />
+
+                {isError ? (
+                    <Paragraph sx={{ color: "red" }}>
+                        Sorry, choked on that link – likely too long. <br />
+                        Try something else
+                    </Paragraph>
+                ) : null}
 
                 {isLoading ? (
                     <Spinner />
