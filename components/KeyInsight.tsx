@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import { Box, Button, Flex, Input, Link, Paragraph, Spinner } from "theme-ui";
 
-async function findKeyInsight(vars: { url: string }) {
-    const res = await fetch("/api/findKeyInsight", {
+export async function findKeyInsight(vars: { url: string }) {
+    const res = await fetch("https://whatisthepoint.xyz/api/findKeyInsight", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
