@@ -67,10 +67,14 @@ export default function Extension() {
     } = useMutation(findKeyInsight);
 
     async function summarizeArticle() {
-        let [tab] = await chrome.tabs.query({
-            active: true,
-            lastFocusedWindow: true,
-        });
+        // let [tab] = await chrome.tabs.query({
+        //     active: true,
+        //     lastFocusedWindow: true,
+        // });
+
+        const tab = {
+            url: "https://www.garmin.com/en-US/blog/marine/ghost-boat-with-garmin-gps-leads-father-son-duo-to-man-overboard/",
+        };
 
         if (tab.url) {
             try {
@@ -83,7 +87,7 @@ export default function Extension() {
 
     useEffect(() => {
         summarizeArticle();
-    }, [summarizeArticle]);
+    }, []);
 
     return (
         <Layout>
