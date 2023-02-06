@@ -8,6 +8,10 @@ export async function findKeyInsight(vars: { url: string }) {
         headers: {
             "Content-Type": "application/json",
         },
+        mode: "cors",
+        redirect: "follow",
+        referrer: "https://whatisthepoint.xyz/extension",
+        referrerPolicy: "origin",
         body: JSON.stringify(vars),
     });
 

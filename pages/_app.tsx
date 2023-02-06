@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <>
                     <Script
                         data-domain="whatisthepoint.xyz"
-                        src="https://plausible.io/js/script.js"
+                        src="plausible.js"
                     />
 
                     <Component {...pageProps} />
