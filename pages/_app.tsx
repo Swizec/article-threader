@@ -1,3 +1,4 @@
+import PlausibleProvider from "next-plausible";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -10,14 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <QueryClientProvider client={queryClient}>
-                <>
-                    <Script
-                        data-domain="whatisthepoint.xyz"
-                        src="plausible.js"
-                    />
-
+                <PlausibleProvider domain="whatispoint.xyz">
                     <Component {...pageProps} />
-                </>
+                </PlausibleProvider>
             </QueryClientProvider>
         </ThemeProvider>
     );
