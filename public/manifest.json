@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "WhatIsPoint.xyz",
     "short_name": "whatispoint",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Get the main insight from an article using GPT",
     "icons": {
         "16": "/icons/favicon-16x16.png",
@@ -18,7 +18,6 @@
             "js": ["inject.js"]
         }
     ],
-    "host_permissions": ["<all_urls>"],
     "action": {
         "default_popup": "extension.html"
     }
