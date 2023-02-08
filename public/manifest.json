@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "WhatIsPoint.xyz",
     "short_name": "whatispoint",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Get the main insight from an article using GPT",
     "icons": {
         "16": "/icons/favicon-16x16.png",

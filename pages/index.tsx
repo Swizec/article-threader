@@ -1,6 +1,62 @@
 import Head from "next/head";
-import { Box, Container, Flex, Link } from "theme-ui";
+import Image from "next/image";
+import {
+    AspectRatio,
+    Box,
+    Button,
+    Container,
+    Flex,
+    Link,
+    Paragraph,
+} from "theme-ui";
 import { KeyInsight } from "../components/KeyInsight";
+import examplePic from "../public/swizec-example.png";
+
+const BrowserExtension = () => {
+    return (
+        <Box
+            sx={{
+                textAlign: "center",
+            }}
+        >
+            <h2>Get the WhatIsPoint.xyz browser extension</h2>
+            <AspectRatio ratio={1280 / 800} sx={{ mb: 3 }}>
+                <Image
+                    src={examplePic}
+                    alt="WhatIsPoint.xyz used on an Atlantic article"
+                    fill
+                />
+            </AspectRatio>
+            <Paragraph sx={{ mb: ".7em" }}>
+                <a href="https://chrome.google.com/webstore/detail/whatispointxyz/ocochaianpngffjfchhcbjmfjgdaligc">
+                    WhatIsPoint.xyz
+                </a>{" "}
+                is a browser extension that leverages the power of GPT-3 to
+                simplify the information overload of online articles. With a
+                single click, it summarizes the key insights of any article
+                you&apos;re reading, providing a convenient and
+                easy-to-understand overview of the content.
+            </Paragraph>
+            <Paragraph sx={{ mb: ".7em" }}>
+                Say goodbye to endless scrolling and save time by quickly
+                grasping the core ideas of any article. Upgrade your browsing
+                experience with{" "}
+                <a href="https://chrome.google.com/webstore/detail/whatispointxyz/ocochaianpngffjfchhcbjmfjgdaligc">
+                    WhatIsPoint.xyz
+                </a>
+                .
+            </Paragraph>
+            <Button
+                as="a"
+                // @ts-expect-error
+                href="https://chrome.google.com/webstore/detail/whatispointxyz/ocochaianpngffjfchhcbjmfjgdaligc"
+                sx={{ py: 3, px: 4 }}
+            >
+                Get the Extension
+            </Button>
+        </Box>
+    );
+};
 
 export default function Home() {
     return (
@@ -81,18 +137,22 @@ export default function Home() {
                     flexDirection: "column",
                 }}
             >
-                {/* <ThreadMaker /> */}
                 <Flex
                     as="main"
                     sx={{
                         flex: 1,
                         justifyContent: "center",
                         alignContent: "center",
+                        flexDirection: "column",
                     }}
                 >
                     <KeyInsight />
+                    <BrowserExtension />
                 </Flex>
-                <Box as="footer" sx={{ textAlign: "center", p: [1, 3] }}>
+                <Box
+                    as="footer"
+                    sx={{ textAlign: "center", p: [1, 3], fontSize: 1 }}
+                >
                     Created for fun by{" "}
                     <Link href="https://swizec.com">Swizec</Link>
                 </Box>

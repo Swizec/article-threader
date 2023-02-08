@@ -124,9 +124,9 @@ export const KeyInsight = () => {
                         <Link href={url}>{new URL(url).hostname}</Link>
                     </Paragraph>
                 </>
-            ) : (
-                <HowItWorks />
-            )}
+            ) : null
+            // <HowItWorks />
+            }
         </Box>
     );
 };
