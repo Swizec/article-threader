@@ -3,14 +3,14 @@ import { useMutation } from "react-query";
 import { Box, Button, Flex, Input, Link, Paragraph, Spinner } from "theme-ui";
 
 export async function findKeyInsight(vars: { url: string }) {
-    const res = await fetch("https://whatisthepoint.xyz/api/findKeyInsight", {
+    const res = await fetch("https://whatispoint.xyz/api/findKeyInsight", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         mode: "cors",
         redirect: "follow",
-        referrer: "https://whatisthepoint.xyz/extension",
+        referrer: "https://whatispoint.xyz/extension",
         referrerPolicy: "origin",
         body: JSON.stringify(vars),
     });

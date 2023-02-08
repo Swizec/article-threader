@@ -110,11 +110,11 @@ export default function Extension() {
                 point 👇
             </Paragraph>
 
-            {isLoading ? <Spinner /> : null}
-
             <Heading as="h2" sx={{ mt: 3 }}>
                 The point 👇
             </Heading>
+
+            {isLoading ? <Spinner /> : null}
 
             {keyInsight ? (
                 <Paragraph sx={{ m: "auto", p: 2, fontSize: 1 }}>
@@ -131,7 +131,7 @@ export default function Extension() {
                 sx={{ my: 2 }}
                 onClick={() => setMinHeight(600)}
             >
-                Support WhatIsThePoint.xyz
+                Support WhatIsPoint.xyz
             </Button>
         </Layout>
     );
