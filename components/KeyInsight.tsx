@@ -4,7 +4,7 @@ import { Box, Button, Flex, Input, Link, Paragraph, Spinner } from "theme-ui";
 import { usePlausible } from "next-plausible";
 
 export async function findKeyInsight(vars: { url: string }) {
-    const res = await fetch("https://whatisthepoint.xyz/api/findKeyInsight", {
+    const res = await fetch("https://whatispoint.xyz/api/findKeyInsight", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
