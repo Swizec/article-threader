@@ -9,7 +9,8 @@
         "start": "next start",
         "lint": "next lint",
         "build:extension": "next build && next export && npm run lint:build",
-        "lint:build": "mv out/_next out/assets && gsed -i 's/\\/_next/\\/assets/g' out/**.html"
+        "lint:build": "mv out/_next out/assets && gsed -i 's/\\/_next/\\/assets/g' out/**.html",
+        "package": "npm run build:extension && zip -r packages/$(date -u +\"%Y-%m-%dT%H:%M:%SZ\").zip out"
     },
     "dependencies": {
         "@emotion/react": "^11.10.5",
