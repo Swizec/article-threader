@@ -114,7 +114,11 @@ export default function Extension() {
                 The point 👇
             </Heading>
 
-            {isLoading ? <Spinner /> : null}
+            {isLoading ? (
+                <Box>
+                    <Spinner />
+                </Box>
+            ) : null}
 
             {keyInsight ? (
                 <Paragraph sx={{ m: "auto", p: 2, fontSize: 1 }}>
