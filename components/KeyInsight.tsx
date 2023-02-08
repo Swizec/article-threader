@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "react-query";
 import { Box, Button, Flex, Input, Link, Paragraph, Spinner } from "theme-ui";
+import { usePlausible } from "next-plausible";
 
 export async function findKeyInsight(vars: { url: string }) {
     const res = await fetch("https://whatisthepoint.xyz/api/findKeyInsight", {
@@ -36,6 +37,8 @@ const HowItWorks = () => {
 export const KeyInsight = () => {
     const [url, setUrl] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
+
+    const plausible = usePlausible();
 
     const {
         data: keyInsight,
@@ -73,11 +76,11 @@ export const KeyInsight = () => {
                 Don&apos;t have a URL handy?{" "}
                 <Link
                     href="#"
-                    onClick={() =>
+                    onClick={() => {
                         setUrl(
                             "https://swizec.com/blog/why-senior-engineers-get-nothing-done/"
-                        )
-                    }
+                        );
+                    }}
                 >
                     Try an example
                 </Link>
@@ -95,7 +98,14 @@ export const KeyInsight = () => {
                     name="url"
                     value={url}
                     placeholder="Paste URL here"
-                    onChange={(e) => setUrl(e.currentTarget.value)}
+                    onChange={(e) => {
+                        setUrl(e.currentTarget.value);
+                        plausible("getUrlSummaryClicked", {
+                            props: {
+                                url,
+                            },
+                        });
+                    }}
                     sx={{ m: 3, width: "100%" }}
                 />
 
@@ -115,17 +125,20 @@ export const KeyInsight = () => {
                 )}
             </Flex>
 
-            {keyInsight ? (
-                <>
-                    <h2>The point 👇</h2>
-                    <Paragraph sx={{ m: "auto", p: 2 }}>{keyInsight}</Paragraph>
-                    <Paragraph>
-                        Read more:{" "}
-                        <Link href={url}>{new URL(url).hostname}</Link>
-                    </Paragraph>
-                </>
-            ) : null
-            // <HowItWorks />
+            {
+                keyInsight ? (
+                    <>
+                        <h2>The point 👇</h2>
+                        <Paragraph sx={{ m: "auto", p: 2 }}>
+                            {keyInsight}
+                        </Paragraph>
+                        <Paragraph>
+                            Read more:{" "}
+                            <Link href={url}>{new URL(url).hostname}</Link>
+                        </Paragraph>
+                    </>
+                ) : null
+                // <HowItWorks />
             }
         </Box>
     );

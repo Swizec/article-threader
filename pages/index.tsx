@@ -11,8 +11,11 @@ import {
 } from "theme-ui";
 import { KeyInsight } from "../components/KeyInsight";
 import examplePic from "../public/swizec-example.png";
+import { usePlausible } from "next-plausible";
 
 const BrowserExtension = () => {
+    const plausible = usePlausible();
+
     return (
         <Box
             sx={{
@@ -50,7 +53,9 @@ const BrowserExtension = () => {
                 as="a"
                 // @ts-expect-error
                 href="https://chrome.google.com/webstore/detail/whatispointxyz/ocochaianpngffjfchhcbjmfjgdaligc"
+                target="_blank"
                 sx={{ py: 3, px: 4 }}
+                onClick={() => plausible("getExtensionClicked")}
             >
                 Get the Extension
             </Button>
