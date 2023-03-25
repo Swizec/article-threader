@@ -43,33 +43,26 @@ const findKeyInsight: NextApiHandler = async (req, res) => {
 
     return res.status(200).send("Sorry, had to turn this off due to API cost");
 
-    const article = await extract(cleanUrl);
+    // const article = await extract(cleanUrl);
 
-    if (!article.title || !article.content) {
-        return res.status(400).send("Couldn't extract article");
-    }
+    // if (!article.title || !article.content) {
+    //     return res.status(400).send("Couldn't extract article");
+    // }
 
-    const cleanContent = stripHtml(article.content).result;
+    // const cleanContent = stripHtml(article.content).result;
 
-    const insight1 = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: `What is the most surprising insight in this article: ${cleanContent}`,
-        temperature: 0.6,
-        max_tokens: 800,
-    });
-
-    // const insight2 = await openai.createCompletion({
+    // const insight1 = await openai.createCompletion({
     //     model: "text-davinci-003",
-    //     prompt: `Turn this description into a viral tweet: ${insight1.data.choices[0].text.trim()}`,
+    //     prompt: `What is the most surprising insight in this article: ${cleanContent}`,
     //     temperature: 0.6,
     //     max_tokens: 800,
     // });
 
-    const finalResult = insight1.data.choices[0].text;
+    // const finalResult = insight1.data.choices[0].text;
 
-    await redis.set(cleanUrl, finalResult);
+    // await redis.set(cleanUrl, finalResult);
 
-    res.status(200).send(finalResult);
+    // res.status(200).send(finalResult);
 };
 
 export default findKeyInsight;
