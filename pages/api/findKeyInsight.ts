@@ -41,6 +41,8 @@ const findKeyInsight: NextApiHandler = async (req, res) => {
         return res.status(200).send(cached);
     }
 
+    return res.status(200).send("Sorry, had to turn this off due to API cost");
+
     const article = await extract(cleanUrl);
 
     if (!article.title || !article.content) {
